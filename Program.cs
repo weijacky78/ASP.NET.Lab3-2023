@@ -1,7 +1,14 @@
+using Assignment0.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+var dbmsVersion = new MariaDbServerVersion(builder.Configuration.GetValue<string>("MariaDbVersion"));
+var connectionString = builder.Configuration.GetConnectionString("Assignment0Db");
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<Context>(opt => opt.UseMySql(connectionString, dbmsVersion));
 
 var app = builder.Build();
 

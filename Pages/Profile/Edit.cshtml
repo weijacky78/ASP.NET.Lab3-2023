@@ -1,0 +1,50 @@
+@page
+@model Assignment0.Pages_Profile.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>SiteUser</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="SiteUser.SiteUserId" />
+            <div class="form-group">
+                <label asp-for="SiteUser.Email" class="control-label"></label>
+                <input asp-for="SiteUser.Email" class="form-control" />
+                <span asp-validation-for="SiteUser.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SiteUser.FirstName" class="control-label"></label>
+                <input asp-for="SiteUser.FirstName" class="form-control" />
+                <span asp-validation-for="SiteUser.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SiteUser.LastName" class="control-label"></label>
+                <input asp-for="SiteUser.LastName" class="form-control" />
+                <span asp-validation-for="SiteUser.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SiteUser.Password" class="control-label"></label>
+                <input asp-for="SiteUser.Password" class="form-control" />
+                <span asp-validation-for="SiteUser.Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
