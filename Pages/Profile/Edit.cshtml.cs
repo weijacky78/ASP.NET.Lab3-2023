@@ -13,10 +13,12 @@ namespace Assignment0.Pages_Profile
     public class EditModel : PageModel
     {
         private readonly Assignment0.Models.Context _context;
+        private readonly ILogger<EditModel> _logger;
 
-        public EditModel(Assignment0.Models.Context context)
+        public EditModel(Assignment0.Models.Context context, ILogger<EditModel> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         [BindProperty]
@@ -29,7 +31,7 @@ namespace Assignment0.Pages_Profile
                 return NotFound();
             }
 
-            var siteuser =  await _context.Users.FirstOrDefaultAsync(m => m.SiteUserId == id);
+            var siteuser = await _context.Users.FirstOrDefaultAsync(m => m.SiteUserId == id);
             if (siteuser == null)
             {
                 return NotFound();
@@ -65,12 +67,12 @@ namespace Assignment0.Pages_Profile
                 }
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Details");
         }
 
         private bool SiteUserExists(uint id)
         {
-          return (_context.Users?.Any(e => e.SiteUserId == id)).GetValueOrDefault();
+            return (_context.Users?.Any(e => e.SiteUserId == id)).GetValueOrDefault();
         }
     }
 }

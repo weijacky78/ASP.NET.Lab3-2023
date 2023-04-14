@@ -11,9 +11,13 @@ public class SiteUser
     [Display(Name = "First Name")]
     public string FirstName { get; set; } = "";
     public string LastName { get; set; } = "";
+
+    [DataType(DataType.Password)]
     public string Password { get; set; } = "";
 
     [NotMapped]
     [Compare("Password", ErrorMessage = "Passwords do not match")]
+    [Display(Name = "Verify Password")]
+    [DataType(DataType.Password)]
     public string PasswordVerify { get; set; } = "";
 }

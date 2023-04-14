@@ -35,6 +35,11 @@
                 <span asp-validation-for="SiteUser.Password" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="SiteUser.PasswordVerify" class="control-label"></label>
+                <input asp-for="SiteUser.PasswordVerify" class="form-control" />
+                <span asp-validation-for="SiteUser.PasswordVerify" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
