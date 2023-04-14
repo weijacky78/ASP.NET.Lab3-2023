@@ -20,4 +20,10 @@ public class SiteUser
     [Display(Name = "Verify Password")]
     [DataType(DataType.Password)]
     public string PasswordVerify { get; set; } = "";
+
+    [Display(Name = "Phone Number")]
+    public string PhoneNumber { get; set; } = "";
+
+    [Display(Name = "Mailing Address")]
+    public string MailingAddress { get; set; } = "";
 }
